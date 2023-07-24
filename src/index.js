@@ -43,3 +43,6 @@ pText.forEach(p => p.addEventListener('click', e => e.target.style.color = 'red'
 pText.forEach(p => p.addEventListener('focus', e => e.target.style.color = 'blue'));
 bodyImgs.forEach(img => img.scale = 1);
 bodyImgs.forEach(img => img.addEventListener('wheel', e => zoom(e)));
+document.body.addEventListener('mousemove', e => {const { clientX, clientY} = e});
+document.body.addEventListener('mouseenter', e => e.target.style.fontWeight = 'bold');
+document.body.addEventListener('mouseleave', e => e.target.style.fontWeight = 'initial');

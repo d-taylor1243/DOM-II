@@ -32,7 +32,7 @@ Do not **move or rename any files** in this project. The website's source files 
   * [X] `keydown`
   * [X] `mousedown`
   * [X] `mouseup`
-  * [ ] `wheel`
+  * [X] `wheel`
   * [X] `load`
   * [X] `click`
   * [ ] `focus`
