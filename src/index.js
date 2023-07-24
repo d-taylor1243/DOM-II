@@ -6,6 +6,9 @@ let bottomButtons = Array.from(document.getElementsByClassName('btn'));
 let body = document.getElementsByTagName('body')[0];
 let header = document.getElementsByTagName('header')[0];
 let pText = Array.from(document.getElementsByTagName('p'));
+let bodyImgs = Array.from(document.getElementsByClassName('img-content'))
+const input = document.querySelector("input");
+
 function textContentReset(str, element) {
     element.textContent = str;    
 }
@@ -18,6 +21,15 @@ let dblClickE = function (event) {
     
 }
 
+function zoom(event) {
+    event.preventDefault();
+    //event.target.setAttribute('style', 'transform: scale('+event.deltaY*(0.01)+')');
+    //event.target.style.scale = event.target.style.scale + event.deltaY*(-0.01);
+    let scale = event.target.scale += event.deltaY * -0.01;
+    console.log(scale);
+    event.target.scale = scale;
+    event.target.style.transform = `scale(${scale})`
+}
 
 navBar.forEach(child => child.addEventListener('mouseover', e => e.target.style.backgroundColor = 'green'));
 navBar.forEach(child => child.addEventListener('mouseout', e => e.target.style.backgroundColor = 'white'));
@@ -27,6 +39,7 @@ bottomButtons.forEach(button => button.addEventListener('mouseup', e => e.target
 window.addEventListener('keydown', e => e.key == ('g' || 'G') ? body.style.backgroundColor = 'green' : body.style.backgroundColor = "");
 window.addEventListener('load', e => console.log('page loaded! This could be a great event for running diagnostic checking functions.'));
 header.getElementsByTagName('h1')[0].addEventListener('dblclick', e => dblClickE(e));
-pText.forEach(p => p.addEventListener('select', e => {
-    e.target.textContent.color = 'red';
-    }));
+pText.forEach(p => p.addEventListener('click', e => e.target.style.color = 'red'));
+pText.forEach(p => p.addEventListener('focus', e => e.target.style.color = 'blue'));
+bodyImgs.forEach(img => img.scale = 1);
+bodyImgs.forEach(img => img.addEventListener('wheel', e => zoom(e)));
