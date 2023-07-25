@@ -43,7 +43,7 @@ window.addEventListener('keydown', e => e.key == ('g' || 'G') ? body.style.backg
 window.addEventListener('load', e => console.log('page loaded! This could be a great event for running diagnostic checking functions.'));
 header.getElementsByTagName('h1')[0].addEventListener('dblclick', e => dblClickE(e));
 pText.forEach(p => p.addEventListener('click', e => e.target.style.color = 'red'));
-pText.forEach(p => p.addEventListener('focus', e => e.target.style.color = 'blue'));
+//pText.forEach(p => p.addEventListener('focus', e => e.target.style.color = 'blue'));
 bodyImgs.forEach(img => img.scale = 1);
 bodyImgs.forEach(img => img.addEventListener('wheel', e => e.target.outerHTML = ''));
 document.body.addEventListener('mousemove', e => {const { clientX, clientY} = e});
