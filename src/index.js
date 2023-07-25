@@ -8,6 +8,7 @@ let header = document.getElementsByTagName('header')[0];
 let pText = Array.from(document.getElementsByTagName('p'));
 let bodyImgs = Array.from(document.getElementsByClassName('img-content'))
 const input = document.querySelector("input");
+const passwordLabel = document.querySelector('input[type="password"]');
 
 function textContentReset(str, element) {
     element.textContent = str;    
@@ -31,6 +32,8 @@ function zoom(event) {
     event.target.style.transform = `scale(${scale})`
 }
 
+
+
 navBar.forEach(child => child.addEventListener('mouseover', e => e.target.style.backgroundColor = 'green'));
 navBar.forEach(child => child.addEventListener('mouseout', e => e.target.style.backgroundColor = 'white'));
 bottomButtons.forEach(button => button.addEventListener('mousedown', e => e.target.textContent = "You are firing a mousedown event!"));
@@ -46,3 +49,6 @@ bodyImgs.forEach(img => img.addEventListener('wheel', e => e.target.outerHTML = 
 document.body.addEventListener('mousemove', e => {const { clientX, clientY} = e});
 document.body.addEventListener('mouseenter', e => e.target.style.fontWeight = 'bold');
 document.body.addEventListener('mouseleave', e => e.target.style.fontWeight = 'initial');
+passwordLabel.addEventListener('focus', e => e.target.style.background = 'pink');
+passwordLabel.addEventListener('blur', e => e.target.style.background = '');
+
